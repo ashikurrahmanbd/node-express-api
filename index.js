@@ -7,12 +7,14 @@ const mongoose = require('mongoose');
 //userMode
 const User = require('./models/user.model.js');
 
-
 //creating app from express
 const app = express();
 
 //we must have to enable to use json otherwise we will not be able to send the body
 app.use(express.json());
+
+//to accept the form submission to store data we must need the follwoing  urlencoded extended false
+app.use(express.urlencoded({extended: false}))
 
 
 /**
@@ -148,16 +150,6 @@ app.delete('/api/user/:id', async (req, res) => {
     }
 
 });
-
-
-
-
-
-
-
-
-
-
 
 
 
